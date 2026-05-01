@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Island Roma Nte — Asistencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f1e8;
+    --bg-alt: #ebe5d4;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --accent: #c8553d;
+    --accent-soft: #e8a598;
+    --hot-pink: #ff3d7f;
+    --sun: #ffb627;
+    --ocean: #2d8b96;
+    --present: #2d5016;
+    --absent: #d4cfc0;
+    --line: #1a1a1a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Fraunces', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* ===== BANNER ===== */
+  .banner {
+    background: linear-gradient(135deg, #ff3d7f 0%, #ff6b3d 50%, #ffb627 100%);
+    color: #fff;
+    padding: 3rem 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid var(--ink);
+  }
+
+  .banner::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .banner::after {
+    content: "❤";
+    position: absolute;
+    bottom: -40px;
+    right: 40px;
+    font-size: 200px;
+    color: rgba(255,255,255,0.12);
+    line-height: 1;
+    pointer-events: none;
+    transform: rotate(-15deg);
+  }
+
+  .banner-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0.9;
+  }
+
+  .banner-eyebrow::before,
+  .banner-eyebrow::after {
+    content: "";
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,0.6);
+  }
+
+  .banner h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 9vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-align: center;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+  }
+
+  .banner h1 .love {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .banner h1 .island {
+    font-weight: 800;
+    font-style: normal;
+    display: inline-block;
+    transform: rotate(-2deg);
+  }
+
+  .banner h1 .roma {
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  .banner h1 .nte {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.32em;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    vertical-align: middle;
+    background: var(--ink);
+    color: #fff;
+    padding: 0.25em 0.55em;
+    margin-left: 0.3em;
+    border-radius: 3px;
+    transform: translateY(-0.4em);
+    display: inline-block;
+    text-shadow: none;
+  }
+
+  .banner-sub {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .banner-sub .dot {
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .logo-spot-banner {
+    position: absolute;
+    top: 2rem;
+    left: 3rem;
+    width: 56px;
+    height: 56px;
+    border: 1.5px dashed rgba(255,255,255,0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    color: rgba(255,255,255,0.85);
+    z-index: 2;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .banner-corner {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-align: right;
+    z-index: 2;
+    line-height: 1.7;
+  }
+
+  .banner-corner .season {
+    background: var(--ink);
+    color: #fff;
+    padding: 0.3em 0.7em;
+    display: inline-block;
+    margin-bottom: 0.4rem;
+    border-radius: 2px;
+  }
+
+  /* ===== PHOTOS BAR ===== */
+  .photos-bar {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 1.25rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 2px solid var(--ink);
+    flex-wrap: wrap;
+  }
+
+  .photos-bar-text {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    flex: 1;
+    min-width: 240px;
+  }
+
+  .photos-bar-text strong {
+    font-style: normal;
+    font-weight: 600;
+    background: linear-gradient(120deg, #ff3d7f 0%, #ffb627 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .photo-btn-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .photo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.4rem;
+    background: linear-gradient(135deg, #ff3d7f 0%, #ff6b3d 100%);
+    color: #fff;
+    border: 2px solid var(--bg);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 4px 4px 0 var(--bg);
+    white-space: nowrap;
+  }
+
+  .photo-btn.astro {
+    background: linear-gradient(135deg, #6b46c1 0%, #e8c547 100%);
+  }
+
+  .photo-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--bg);
+  }
+
+  .photo-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--bg);
+  }
+
+  .photo-btn-icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .photo-btn-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .photo-btn:hover .photo-btn-arrow {
+    transform: translateX(3px);
+  }
+
+  /* ===== CAROUSEL ===== */
+  .carousel-section {
+    background: var(--ink);
+    padding: 3rem 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-section .section-title {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel-section .section-title::after {
+    background: rgba(255,255,255,0.3);
+  }
+
+  .carousel {
+    position: relative;
+    width: 100%;
+    height: clamp(300px, 50vw, 520px);
+    border: 2px solid var(--bg);
+    overflow: hidden;
+    background: #2a2a2a;
+  }
+
+  .carousel-track {
+    position: absolute;
+    inset: 0;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+  }
+
+  .carousel-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.5) 100%);
+    pointer-events: none;
+  }
+
+  .carousel-controls {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .carousel-counter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+  }
+
+  .carousel-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid #fff;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: background 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(255,61,127,0.8);
+    transform: scale(1.05);
+  }
+
+  .carousel-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    text-align: center;
+    padding: 2rem;
+    gap: 1rem;
+  }
+
+  .carousel-empty .icon {
+    font-size: 3rem;
+    opacity: 0.5;
+  }
+
+  .carousel-empty code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-style: normal;
+  }
+
+  /* ===== PHOTO GRID ===== */
+  .photo-grid-section {
+    padding: 3rem;
+    background: var(--bg);
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .photo-thumb {
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    border: 1.5px solid var(--ink);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,61,127,0);
+    transition: background 0.3s;
+  }
+
+  .photo-thumb:hover {
+    transform: scale(1.03);
+    box-shadow: 4px 4px 0 var(--ink);
+    z-index: 2;
+  }
+
+  .photo-thumb:hover::after {
+    background: rgba(255,61,127,0.15);
+  }
+
+  /* ===== LIGHTBOX ===== */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: zoom-out;
+  }
+
+  .lightbox.open {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .lightbox img {
+    max-width: 95%;
+    max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid #fff;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid #fff;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox-prev { left: 1.5rem; }
+  .lightbox-next { right: 1.5rem; }
+
+  .lightbox-counter {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+  }
+
+  /* ===== STATS BAR ===== */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 2px solid var(--line);
+    background: var(--bg);
+  }
+
+  .stat {
+    padding: 1.5rem 2rem;
+    border-right: 1px solid var(--line);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-value {
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-value sup {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-left: 0.25rem;
+  }
+
+  /* ===== MAIN CONTAINER ===== */
+  .container {
+    padding: 3rem;
+    max-width: 100%;
+  }
+
+  .section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--ink);
+    opacity: 0.2;
+  }
+
+  /* ===== RANKING ===== */
+  .ranking {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--ink);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 4rem;
+  }
+
+  .member-card {
+    background: var(--bg);
+    padding: 1.25rem 1.5rem;
+    transition: background 0.2s;
+    cursor: default;
+    position: relative;
+  }
+
+  .member-card:hover {
+    background: var(--bg-alt);
+  }
+
+  .member-card .rank {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .member-card .name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+
+  .member-card .stats {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+
+  .member-card .pct {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .member-card .bar {
+    margin-top: 0.75rem;
+    height: 3px;
+    background: var(--bg-alt);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .member-card .bar-fill {
+    height: 100%;
+    background: var(--accent);
+    transform-origin: left;
+    animation: barfill 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform: scaleX(0);
+  }
+
+  @keyframes barfill {
+    to { transform: scaleX(1); }
+  }
+
+  /* ===== GRID TABLE ===== */
+  .grid-wrap {
+    overflow-x: auto;
+    border: 1.5px solid var(--ink);
+    background: var(--bg);
+    margin-bottom: 4rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table.grid {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 900px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+  }
+
+  table.grid th,
+  table.grid td {
+    border: 1px solid var(--ink);
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    background: var(--bg);
+  }
+
+  table.grid thead th {
+    background: var(--ink);
+    color: var(--bg);
+    font-weight: 500;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.75rem 0.4rem;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  table.grid thead th .day {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 2px;
+  }
+
+  table.grid tbody th {
+    text-align: left;
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--bg-alt);
+    padding: 0.6rem 1rem;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    min-width: 130px;
+  }
+
+  table.grid tbody tr:hover th,
+  table.grid tbody tr:hover td {
+    background: #f0e9d2;
+  }
+
+  .cell-present {
+    background: var(--present) !important;
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .cell-absent {
+    color: var(--absent);
+  }
+
+  .total-col {
+    background: var(--bg-alt) !important;
+    font-family: 'Fraunces', serif !important;
+    font-size: 1rem !important;
+    font-weight: 600;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    border-top: 2px solid var(--line);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+  }
+
+  .footer .ornament {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--accent);
+  }
+
+  /* ===== LEGEND ===== */
+  .legend {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .legend-swatch {
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--ink);
+  }
+
+  .swatch-present { background: var(--present); }
+  .swatch-absent { background: var(--bg); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .banner {
+      padding: 5rem 1.5rem 2rem;
+    }
+    .logo-spot-banner {
+      top: 1rem;
+      left: 1rem;
+      width: 44px;
+      height: 44px;
+    }
+    .banner-corner {
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.55rem;
+    }
+    .banner h1 .nte {
+      font-size: 0.4em;
+    }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .stat { border-bottom: 1px solid var(--line); }
+    .stat:nth-child(2) { border-right: none; }
+    .photos-bar {
+      padding: 1.25rem 1.5rem;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+    .photos-bar-text { font-size: 0.95rem; text-align: center; }
+    .photo-btn-group { flex-direction: column; gap: 0.5rem; }
+    .photo-btn { width: 100%; justify-content: center; }
+    .carousel-section,
+    .photo-grid-section { padding: 2rem 1.5rem; }
+    .photo-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    .lightbox-nav { width: 40px; height: 40px; }
+    .lightbox-prev { left: 0.5rem; }
+    .lightbox-next { right: 0.5rem; }
+    .container { padding: 1.5rem; }
+    .footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== ANIMATION ===== */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<header class="banner fade-in">
+  <div class="logo-spot-banner">LOGO</div>
+  <div class="banner-corner">
+    <div class="season">TEMPORADA 01</div>
+    <div>FEB — ABR 2025</div>
+  </div>
+
+  <div class="banner-eyebrow">Registro Oficial de Asistencia</div>
+  <h1>
+    <span class="love">Love</span>
+    <span class="island">Island</span><br>
+    <span class="roma">Roma</span><span class="nte">NTE</span>
+  </h1>
+  <div class="banner-sub">
+    <span>22 Eventos</span>
+    <span class="dot"></span>
+    <span>15 Miembros</span>
+    <span class="dot"></span>
+    <span>1 Vecindad</span>
+  </div>
+</header>
+
+<section class="photos-bar fade-in" style="animation-delay: 0.05s">
+  <div class="photos-bar-text">
+    Memorias y energías de la vecindad — <strong>todo en un solo lugar</strong>
+  </div>
+  <div class="photo-btn-group">
+    <a href="astrologia.html" class="photo-btn astro">
+      <span class="photo-btn-icon">✨</span>
+      <span>Cartas Astrales</span>
+      <span class="photo-btn-arrow">→</span>
+    </a>
+    <a href="https://photos.app.goo.gl/jC8dBGsBf26CGBeJA" target="_blank" rel="noopener" class="photo-btn">
+      <span class="photo-btn-icon">📸</span>
+      <span>Álbum Completo</span>
+      <span class="photo-btn-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<section class="stats-bar fade-in" style="animation-delay: 0.1s">
+  <div class="stat">
+    <div class="stat-label">Eventos</div>
+    <div class="stat-value">22</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">Miembros</div>
+    <div class="stat-value">15</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">Asistencias totales</div>
+    <div class="stat-value" id="total-attendances">—</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">Promedio por evento</div>
+    <div class="stat-value" id="avg-per-event">—</div>
+  </div>
+</section>
+
+<!-- ===== CAROUSEL ===== -->
+<section class="carousel-section fade-in" style="animation-delay: 0.15s">
+  <h2 class="section-title">Momentos destacados</h2>
+  <div class="carousel" id="carousel">
+    <div class="carousel-track" id="carousel-track"></div>
+    <div class="carousel-controls" id="carousel-controls" style="display:none">
+      <div class="carousel-counter" id="carousel-counter">01 / 01</div>
+      <div class="carousel-buttons">
+        <button class="carousel-btn" id="carousel-prev" aria-label="Anterior">←</button>
+        <button class="carousel-btn" id="carousel-next" aria-label="Siguiente">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Anterior">←</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Siguiente">→</button>
+  <div class="lightbox-counter" id="lightbox-counter">01 / 01</div>
+</div>
+
+<main class="container">
+
+  <h2 class="section-title">Ranking de asistencia</h2>
+  <div class="ranking" id="ranking"></div>
+
+  <h2 class="section-title">Detalle por evento</h2>
+  <div class="legend">
+    <div class="legend-item"><span class="legend-swatch swatch-present"></span> Asistió</div>
+    <div class="legend-item"><span class="legend-swatch swatch-absent"></span> No asistió</div>
+  </div>
+  <div class="grid-wrap">
+    <table class="grid" id="grid-table"></table>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div>LOVE ISLAND ROMA NTE — DOC INTERNO</div>
+  <div class="ornament">— I've got a text —</div>
+  <div>TEMPORADA 01 · 2025</div>
+</footer>
+
+<script>
+  // ===== DATA =====
+  const events = [
+    { date: "Feb 13", attendees: ["Paulina","Paola","Sofía","Patrick","Alf","Adrián","Horacio"] },
+    { date: "Feb 15", attendees: ["Paulina","Paola","Sofía","Alf","Adrián","Lucia","Jorge"] },
+    { date: "Feb 20", attendees: ["Adrián","Paola","Paulina","Sofía","Alf","Carro","Jorge"] },
+    { date: "Feb 21", attendees: ["Alf","Adrián","Lucia","Natalia","Sofía","Paola","Jorge","Santi"] },
+    { date: "Mar 5",  attendees: ["Adrián","Patrick","Alf"] },
+    { date: "Mar 7",  attendees: ["Sofía","Paola","Patrick","Cons","Kid","Preci","Adrián"] },
+    { date: "Mar 8",  attendees: ["Sofía","Paola","Paulina","Adrián","Alf"] },
+    { date: "Mar 11", attendees: ["Alf","Adrián","Sofía","Paola"] },
+    { date: "Mar 27", attendees: ["Alf","Adrián","Horacio"] },
+    { date: "Mar 28", attendees: ["Alf","Horacio","Adrián","Sofía","Paola","Kid","Preci"] },
+    { date: "Mar 29", attendees: ["Alf","Horacio","Adrián","Sofía","Paola","Kid","Preci","Jorge"] },
+    { date: "Abr 3",  attendees: ["Adrián","Patrick","Paola","Paulina","Lucia","Carro","Alf"] },
+    { date: "Abr 4",  attendees: ["Alf","Adrián","Paulina","Paola"] },
+    { date: "Abr 5",  attendees: ["Alf","Adrián","Paulina","Paola","Sofía","Horacio"] },
+    { date: "Abr 8",  attendees: ["Adrián","Paola","Sofía","Horacio"] },
+    { date: "Abr 10", attendees: ["Adrián","Alf","Sofía","Paola","Patrick","Horacio"] },
+    { date: "Abr 12", attendees: ["Adrián","Alf","Sofía","Paola"] },
+    { date: "Abr 17", attendees: ["Alf","Adrián","Horacio","Paulina","Paola","Sofía","Jorge"] },
+    { date: "Abr 18", attendees: ["Alf","Adrián","Paola","Horacio"] },
+    { date: "Abr 23", attendees: ["Alf","Adrián","Patrick","Horacio"] },
+    { date: "Abr 24", attendees: ["Alf","Adrián","Lucia","Natalia"] },
+    { date: "Abr 30", attendees: ["Adrián","Alf","Kid","Sofía","Paola","Cons","Horacio"] }
+  ];
+
+  // Build unique member list
+  const memberSet = new Set();
+  events.forEach(e => e.attendees.forEach(a => memberSet.add(a)));
+  const members = Array.from(memberSet);
+
+  // Compute stats per member
+  const memberStats = members.map(name => {
+    const attended = events.filter(e => e.attendees.includes(name)).length;
+    return {
+      name,
+      attended,
+      total: events.length,
+      pct: Math.round((attended / events.length) * 100)
+    };
+  }).sort((a, b) => b.attended - a.attended || a.name.localeCompare(b.name));
+
+  // Total attendances + average
+  const totalAttendances = events.reduce((sum, e) => sum + e.attendees.length, 0);
+  const avgPerEvent = (totalAttendances / events.length).toFixed(1);
+
+  document.getElementById("total-attendances").innerHTML = totalAttendances;
+  document.getElementById("avg-per-event").innerHTML = avgPerEvent;
+
+  // ===== RENDER RANKING =====
+  const rankingEl = document.getElementById("ranking");
+  memberStats.forEach((m, i) => {
+    const card = document.createElement("div");
+    card.className = "member-card fade-in";
+    card.style.animationDelay = `${0.2 + i * 0.03}s`;
+    card.innerHTML = `
+      <div class="rank">№ ${String(i + 1).padStart(2, "0")}</div>
+      <div class="name">${m.name}</div>
+      <div class="stats">
+        <span>${m.attended} / ${m.total} eventos</span>
+        <span class="pct">${m.pct}%</span>
+      </div>
+      <div class="bar">
+        <div class="bar-fill" style="width: ${m.pct}%; animation-delay: ${0.4 + i * 0.04}s"></div>
+      </div>
+    `;
+    rankingEl.appendChild(card);
+  });
+
+  // ===== RENDER GRID TABLE =====
+  const tableEl = document.getElementById("grid-table");
+  const sortedMembers = memberStats.map(m => m.name);
+
+  // Header row
+  let thead = "<thead><tr><th style='text-align:left'>Miembro</th>";
+  events.forEach(e => {
+    const [month, day] = e.date.split(" ");
+    thead += `<th>${month}<span class="day">${day}</span></th>`;
+  });
+  thead += "<th>Total</th></tr></thead>";
+
+  // Body rows
+  let tbody = "<tbody>";
+  sortedMembers.forEach(name => {
+    tbody += `<tr><th>${name}</th>`;
+    let total = 0;
+    events.forEach(e => {
+      const present = e.attendees.includes(name);
+      if (present) total++;
+      tbody += `<td class="${present ? 'cell-present' : 'cell-absent'}">${present ? '●' : '·'}</td>`;
+    });
+    tbody += `<td class="total-col">${total}</td></tr>`;
+  });
+  tbody += "</tbody>";
+
+  tableEl.innerHTML = thead + tbody;
+
+  // ===== PHOTO GALLERY =====
+  // ⚠️ AGREGA AQUÍ los nombres de archivo de las fotos en /images/
+  // Ejemplo: ["foto1.jpg", "evento-feb13.jpg", "IMG_2847.jpeg"]
+  // Cuando subas fotos a la carpeta images/ en GitHub, agrega sus nombres a esta lista.
+  const photoFiles = [
+    "IMG_1381.JPG", "IMG_1382.JPG", "IMG_1383.JPG", "IMG_1384.JPG", "IMG_1385.JPG",
+    "IMG_1386.JPG", "IMG_1387.JPG", "IMG_1388.JPG", "IMG_1389.JPG", "IMG_1390.JPG",
+    "IMG_1391.JPG", "IMG_1392.JPG", "IMG_1393.JPG", "IMG_1394.JPG", "IMG_1395.JPG",
+    "IMG_1396.JPG", "IMG_1397.JPG", "IMG_1398.JPG", "IMG_1399.JPG", "IMG_1400.JPG",
+    "IMG_1401.JPG", "IMG_1402.JPG", "IMG_1403.JPG", "IMG_1404.JPG", "IMG_1405.JPG",
+    "IMG_1406.JPG", "IMG_1407.JPG", "IMG_1408.JPG", "IMG_1409.JPG", "IMG_1410.JPG",
+    "IMG_1411.JPG", "IMG_1412.JPG", "IMG_1413.JPG", "IMG_1414.JPG", "IMG_1415.JPG",
+    "IMG_1416.JPG", "IMG_1417.JPG", "IMG_1418.JPG", "IMG_1419.JPG", "IMG_1420.JPG",
+    "IMG_1421.JPG", "IMG_1422.JPG", "IMG_1423.JPG", "IMG_1424.JPG", "IMG_1425.JPG",
+    "IMG_1426.JPG", "IMG_1427.JPG", "IMG_1428.JPG", "IMG_1429.JPG", "IMG_1430.JPG",
+    "IMG_1431.JPG", "IMG_1432.JPG", "IMG_1433.JPG", "IMG_1434.JPG", "IMG_1436.JPG",
+    "IMG_1437.JPG", "IMG_1438.JPG", "IMG_1439.JPG", "IMG_1440.JPG", "IMG_1441.JPG"
+  ];
+
+  const PHOTO_DIR = "images/";
+
+  if (photoFiles.length > 0) {
+    initCarousel(photoFiles);
+    initLightbox(photoFiles);
+  } else {
+    showCarouselEmpty();
+  }
+
+  function showCarouselEmpty() {
+    const track = document.getElementById("carousel-track");
+    track.innerHTML = `
+      <div class="carousel-empty">
+        <div class="icon">📷</div>
+        <div>Aún no hay fotos cargadas</div>
+        <code>Agrega imágenes a la carpeta /images/</code>
+      </div>
+    `;
+  }
+
+  // ===== CAROUSEL =====
+  function initCarousel(files) {
+    const track = document.getElementById("carousel-track");
+    const counter = document.getElementById("carousel-counter");
+    const controls = document.getElementById("carousel-controls");
+    const prev = document.getElementById("carousel-prev");
+    const next = document.getElementById("carousel-next");
+
+    // Shuffle for random order
+    const shuffled = [...files].sort(() => Math.random() - 0.5);
+
+    shuffled.forEach((file, i) => {
+      const slide = document.createElement("div");
+      slide.className = "carousel-slide" + (i === 0 ? " active" : "");
+      slide.style.backgroundImage = `url('${PHOTO_DIR}${file}')`;
+      slide.style.cursor = "zoom-in";
+      slide.addEventListener("click", () => {
+        // Find this file's index in the original (non-shuffled) list
+        const originalIndex = files.indexOf(file);
+        openLightbox(originalIndex);
+      });
+      track.appendChild(slide);
+    });
+
+    let current = 0;
+    const total = shuffled.length;
+    const slides = track.querySelectorAll(".carousel-slide");
+
+    function update() {
+      slides.forEach((s, i) => s.classList.toggle("active", i === current));
+      counter.textContent = `${String(current + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+    }
+
+    function go(dir) {
+      current = (current + dir + total) % total;
+      update();
+    }
+
+    if (total > 1) {
+      controls.style.display = "flex";
+      prev.addEventListener("click", (e) => { e.stopPropagation(); go(-1); });
+      next.addEventListener("click", (e) => { e.stopPropagation(); go(1); });
+
+      // Auto-advance every 5 seconds
+      let auto = setInterval(() => go(1), 5000);
+
+      // Pause on hover
+      const carousel = document.getElementById("carousel");
+      carousel.addEventListener("mouseenter", () => clearInterval(auto));
+      carousel.addEventListener("mouseleave", () => {
+        auto = setInterval(() => go(1), 5000);
+      });
+    } else {
+      counter.textContent = "01 / 01";
+      controls.style.display = "flex";
+      prev.style.display = "none";
+      next.style.display = "none";
+    }
+
+    update();
+  }
+
+  // ===== PHOTO GRID =====
+  function initPhotoGrid(files) {
+    const grid = document.getElementById("photo-grid");
+    files.forEach((file, i) => {
+      const thumb = document.createElement("div");
+      thumb.className = "photo-thumb";
+      thumb.style.backgroundImage = `url('${PHOTO_DIR}${file}')`;
+      thumb.dataset.index = i;
+      thumb.addEventListener("click", () => openLightbox(i));
+      grid.appendChild(thumb);
+    });
+  }
+
+  // ===== LIGHTBOX =====
+  let lightboxFiles = [];
+  let lightboxIndex = 0;
+
+  function initLightbox(files) {
+    lightboxFiles = files;
+    const lightbox = document.getElementById("lightbox");
+    const closeBtn = document.getElementById("lightbox-close");
+    const prevBtn = document.getElementById("lightbox-prev");
+    const nextBtn = document.getElementById("lightbox-next");
+
+    closeBtn.addEventListener("click", closeLightbox);
+    prevBtn.addEventListener("click", (e) => { e.stopPropagation(); navLightbox(-1); });
+    nextBtn.addEventListener("click", (e) => { e.stopPropagation(); navLightbox(1); });
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox || e.target.tagName === "IMG") closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") navLightbox(-1);
+      if (e.key === "ArrowRight") navLightbox(1);
+    });
+  }
+
+  function openLightbox(i) {
+    lightboxIndex = i;
+    updateLightbox();
+    document.getElementById("lightbox").classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  function navLightbox(dir) {
+    lightboxIndex = (lightboxIndex + dir + lightboxFiles.length) % lightboxFiles.length;
+    updateLightbox();
+  }
+
+  function updateLightbox() {
+    const img = document.getElementById("lightbox-img");
+    const counter = document.getElementById("lightbox-counter");
+    img.src = `${PHOTO_DIR}${lightboxFiles[lightboxIndex]}`;
+    counter.textContent = `${String(lightboxIndex + 1).padStart(2, "0")} / ${String(lightboxFiles.length).padStart(2, "0")}`;
+  }
+</script>
+</body>
+</html>
