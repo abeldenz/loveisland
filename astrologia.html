@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartas Astrales — Love Island Roma Nte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,300;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0817;
+    --bg-soft: #15112a;
+    --bg-card: #1a1530;
+    --ink: #f5f1e8;
+    --ink-soft: #b8b0d4;
+    --ink-mute: #6e6890;
+    --gold: #e8c547;
+    --gold-soft: #c9a92e;
+    --pink: #ff6b9d;
+    --violet: #9f7aea;
+    --teal: #4fd1c5;
+    --line: rgba(232, 197, 71, 0.2);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Fraunces', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* ===== STARRY BACKGROUND ===== */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 80% 20%, rgba(232,197,71,0.6), transparent),
+      radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1.5px 1.5px at 90% 60%, rgba(159,122,234,0.5), transparent),
+      radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1px 1px at 30% 10%, rgba(232,197,71,0.5), transparent),
+      radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.4), transparent);
+    background-size: 800px 800px;
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 0;
+    animation: twinkle 8s ease-in-out infinite alternate;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at top, rgba(159,122,234,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(255,107,157,0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== TOP NAV ===== */
+  .topnav {
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.2rem;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink-mute);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    transition: all 0.3s;
+  }
+
+  .back-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateX(-4px);
+  }
+
+  .topnav-brand {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 strong {
+    font-style: normal;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--pink) 50%, var(--violet) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .hero-ornament {
+    font-size: 2rem;
+    color: var(--gold);
+    margin: 2rem 0 0;
+    letter-spacing: 1rem;
+    opacity: 0.7;
+  }
+
+  /* ===== CARDS GRID ===== */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.5;
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    right: -30%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(232,197,71,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(232, 197, 71, 0.4);
+  }
+
+  .card-glyph {
+    font-size: 4rem;
+    line-height: 1;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--gold);
+    opacity: 0.25;
+    transition: opacity 0.3s, transform 0.4s;
+    pointer-events: none;
+  }
+
+  .card:hover .card-glyph {
+    opacity: 0.6;
+    transform: rotate(15deg) scale(1.1);
+  }
+
+  .card-name {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+    position: relative;
+  }
+
+  .card-sign {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .card-divider {
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-blurb {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-blurb p {
+    margin-bottom: 0.5rem;
+  }
+
+  .card-blurb p:last-child {
+    margin-bottom: 0;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  /* ===== PENDING CARD ===== */
+  .card.pending {
+    background: transparent;
+    border: 1px dashed var(--ink-mute);
+  }
+
+  .card.pending::before { display: none; }
+  .card.pending::after { display: none; }
+
+  .card.pending .card-name {
+    color: var(--ink-mute);
+  }
+
+  .card.pending .card-pending-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--ink-mute);
+    margin-top: 1rem;
+    text-transform: uppercase;
+  }
+
+  .card.pending .card-glyph {
+    color: var(--ink-mute);
+    opacity: 0.15;
+  }
+
+  /* ===== ELEMENT TAGS ===== */
+  .element-fuego { --element-color: #ff7849; }
+  .element-tierra { --element-color: #68a85f; }
+  .element-aire { --element-color: #4fd1c5; }
+  .element-agua { --element-color: #6b8aff; }
+
+  .card.element-fuego .card-glyph,
+  .card.element-fuego .card-sign,
+  .card.element-fuego .card-divider {
+    color: #ff7849;
+  }
+  .card.element-fuego .card-divider { background: #ff7849; }
+  .card.element-fuego::before { background: linear-gradient(90deg, transparent, #ff7849, transparent); }
+
+  .card.element-tierra .card-glyph,
+  .card.element-tierra .card-sign,
+  .card.element-tierra .card-divider {
+    color: #68a85f;
+  }
+  .card.element-tierra .card-divider { background: #68a85f; }
+  .card.element-tierra::before { background: linear-gradient(90deg, transparent, #68a85f, transparent); }
+
+  .card.element-aire .card-glyph,
+  .card.element-aire .card-sign,
+  .card.element-aire .card-divider {
+    color: #4fd1c5;
+  }
+  .card.element-aire .card-divider { background: #4fd1c5; }
+  .card.element-aire::before { background: linear-gradient(90deg, transparent, #4fd1c5, transparent); }
+
+  .card.element-agua .card-glyph,
+  .card.element-agua .card-sign,
+  .card.element-agua .card-divider {
+    color: #6b8aff;
+  }
+  .card.element-agua .card-divider { background: #6b8aff; }
+  .card.element-agua::before { background: linear-gradient(90deg, transparent, #6b8aff, transparent); }
+
+  /* ===== COMPATIBILITY SECTION ===== */
+  .compat-section {
+    padding: 5rem 3rem;
+    border-top: 1px solid var(--line);
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .compat-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .compat-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .compat-eyebrow::before,
+  .compat-eyebrow::after {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .compat-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .compat-title strong {
+    font-style: normal;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .compat-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ===== HIGHLIGHTS ===== */
+  .highlights-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 5rem;
+  }
+
+  .highlight-card {
+    background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .highlight-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--vibe-color, var(--gold));
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--vibe-color, var(--gold));
+  }
+
+  .highlight-emoji {
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .highlight-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--vibe-color, var(--gold));
+    margin-bottom: 0.5rem;
+  }
+
+  .highlight-pair {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.2;
+  }
+
+  .highlight-pair strong {
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* ===== MATRIX ===== */
+  .matrix-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .matrix-wrap {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 1rem 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .matrix {
+    border-collapse: separate;
+    border-spacing: 6px;
+    margin: 0 auto;
+  }
+
+  .matrix th, .matrix td {
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .matrix .corner {
+    width: 110px;
+    height: 60px;
+  }
+
+  .matrix .name-col,
+  .matrix .name-row {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--ink-soft);
+    width: 110px;
+    height: 60px;
+    padding: 0 0.5rem;
+  }
+
+  .matrix .name-col {
+    text-align: right;
+  }
+
+  .matrix .cell {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 60px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    user-select: none;
+  }
+
+  .matrix .cell.empty {
+    background: transparent;
+    border: none;
+    cursor: default;
+  }
+
+  .matrix .cell.self {
+    background: transparent;
+    border: 1px dashed var(--ink-mute);
+    color: var(--ink-mute);
+    cursor: default;
+    font-size: 1.2rem;
+  }
+
+  .matrix .cell:not(.empty):not(.self):hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 2px var(--ink), 0 0 20px rgba(232,197,71,0.4);
+    z-index: 2;
+  }
+
+  /* Cell vibes */
+  .vibe-fire    { background: linear-gradient(135deg, #ff6b3d, #ff3d7f); border-color: #ff6b3d; }
+  .vibe-harmony { background: linear-gradient(135deg, #68a85f, #4fd1c5); border-color: #68a85f; }
+  .vibe-depth   { background: linear-gradient(135deg, #6b8aff, #9f7aea); border-color: #9f7aea; }
+  .vibe-tension { background: linear-gradient(135deg, #c9302c, #6b46c1); border-color: #c9302c; }
+  .vibe-chaos   { background: linear-gradient(135deg, #ff3d7f, #e8c547); border-color: #ff3d7f; }
+  .vibe-mirror  { background: linear-gradient(135deg, #4fd1c5, #6b8aff); border-color: #4fd1c5; }
+
+  /* ===== LEGEND ===== */
+  .compat-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+  }
+
+  .legend-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .legend-pill .swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+  }
+
+  /* ===== COMPAT MODAL ===== */
+  .compat-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 8, 23, 0.92);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: zoom-out;
+  }
+
+  .compat-modal.open {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .compat-modal-box {
+    background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-soft) 100%);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    max-width: 540px;
+    width: 100%;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    cursor: default;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(232,197,71,0.15);
+  }
+
+  .compat-modal-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .compat-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--ink-mute);
+    color: var(--ink-soft);
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .compat-close:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: rotate(90deg);
+  }
+
+  .modal-emoji {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .modal-vibe-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    background: rgba(232,197,71,0.1);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+  }
+
+  .modal-pair {
+    font-family: 'Fraunces', serif;
+    font-size: 2.25rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-pair strong {
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .modal-pair .amp {
+    color: var(--gold);
+    font-style: normal;
+    margin: 0 0.3rem;
+  }
+
+  .modal-signs {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--ink-mute);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+
+  .modal-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 2rem;
+    opacity: 0.6;
+  }
+
+  .modal-blurb {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--ink);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .modal-blurb p { margin-bottom: 0.6rem; }
+  .modal-blurb p:last-child { margin-bottom: 0; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .compat-section { padding: 3rem 1rem; }
+    .matrix .corner,
+    .matrix .name-col,
+    .matrix .name-row { width: 80px; height: 44px; font-size: 0.8rem; }
+    .matrix .cell { width: 44px; height: 44px; line-height: 44px; font-size: 1.1rem; }
+    .compat-modal-box { padding: 2.5rem 1.5rem; }
+    .modal-pair { font-size: 1.75rem; }
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 3rem 2rem 4rem;
+    border-top: 1px solid var(--line);
+    margin-top: 2rem;
+  }
+
+  .footer-ornament {
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 0.5rem;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+  }
+
+  .footer-text {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-mute);
+    font-size: 0.95rem;
+  }
+
+  /* ===== ANIMATION ===== */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .topnav { padding: 1rem 1.5rem; }
+    .hero { padding: 3rem 1.5rem 2rem; }
+    .cards-grid {
+      padding: 2rem 1.5rem;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .card { padding: 1.75rem 1.5rem; }
+    .card-glyph { font-size: 3rem; }
+    .card-name { font-size: 1.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <nav class="topnav">
+    <a href="index.html" class="back-btn">← Volver</a>
+    <div class="topnav-brand">Love Island Roma Nte · Cartas Astrales</div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-eyebrow">Las estrellas hablan</div>
+    <h1>Cartas <strong>Astrales</strong></h1>
+    <p class="hero-sub">
+      Cada habitante de la vecindad tiene una energía propia.
+      Aquí está lo que dicen los astros sobre cada uno.
+    </p>
+    <div class="hero-ornament">✦ ✧ ✦</div>
+  </header>
+
+  <main class="cards-grid" id="cards-grid"></main>
+
+  <!-- ===== COMPATIBILITY ===== -->
+  <section class="compat-section" id="compat-section">
+    <div class="compat-header">
+      <div class="compat-eyebrow">Las energías se cruzan</div>
+      <h2 class="compat-title">Compa<strong>tibilidades</strong></h2>
+      <p class="compat-sub">
+        Quién prende con quién, quién choca, y quién es match silencioso.
+        Los astros no mienten.
+      </p>
+    </div>
+
+    <div class="highlights-label">— Lo más destacado —</div>
+    <div class="highlights-grid" id="highlights-grid"></div>
+
+    <div class="matrix-label">— Matriz completa · toca cualquier celda —</div>
+    <div class="matrix-wrap">
+      <table class="matrix" id="matrix-table"></table>
+    </div>
+
+    <div class="compat-legend">
+      <div class="legend-pill"><span class="swatch vibe-fire"></span> Fuego puro</div>
+      <div class="legend-pill"><span class="swatch vibe-harmony"></span> Armonía</div>
+      <div class="legend-pill"><span class="swatch vibe-depth"></span> Profundidad</div>
+      <div class="legend-pill"><span class="swatch vibe-tension"></span> Tensión</div>
+      <div class="legend-pill"><span class="swatch vibe-chaos"></span> Caos</div>
+      <div class="legend-pill"><span class="swatch vibe-mirror"></span> Espejo</div>
+    </div>
+  </section>
+
+  <!-- ===== COMPAT MODAL ===== -->
+  <div class="compat-modal" id="compat-modal">
+    <div class="compat-modal-box" id="compat-modal-box">
+      <button class="compat-close" id="compat-close" aria-label="Cerrar">✕</button>
+      <div class="modal-emoji" id="modal-emoji">✨</div>
+      <div class="modal-vibe-tag" id="modal-vibe-tag">VIBRA</div>
+      <div class="modal-pair" id="modal-pair">Nombre <span class="amp">&</span> Nombre</div>
+      <div class="modal-signs" id="modal-signs">Signo · Signo</div>
+      <div class="modal-divider"></div>
+      <div class="modal-blurb" id="modal-blurb"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-ornament">✦ ✧ ✦ ✧ ✦</div>
+    <div class="footer-text">— escrito en las estrellas —</div>
+  </footer>
+
+</div>
+
+<script>
+  // ===== ZODIAC DATA =====
+  const SIGNS = {
+    "Aries":       { glyph: "♈", element: "fuego",  date: "21 mar — 19 abr" },
+    "Tauro":       { glyph: "♉", element: "tierra", date: "20 abr — 20 may" },
+    "Géminis":     { glyph: "♊", element: "aire",   date: "21 may — 20 jun" },
+    "Cáncer":      { glyph: "♋", element: "agua",   date: "21 jun — 22 jul" },
+    "Leo":         { glyph: "♌", element: "fuego",  date: "23 jul — 22 ago" },
+    "Virgo":       { glyph: "♍", element: "tierra", date: "23 ago — 22 sep" },
+    "Libra":       { glyph: "♎", element: "aire",   date: "23 sep — 22 oct" },
+    "Escorpio":    { glyph: "♏", element: "agua",   date: "23 oct — 21 nov" },
+    "Sagitario":   { glyph: "♐", element: "fuego",  date: "22 nov — 21 dic" },
+    "Capricornio": { glyph: "♑", element: "tierra", date: "22 dic — 19 ene" },
+    "Acuario":     { glyph: "♒", element: "aire",   date: "20 ene — 18 feb" },
+    "Piscis":      { glyph: "♓", element: "agua",   date: "19 feb — 20 mar" }
+  };
+
+  // ===== MEMBER DATA =====
+  // Order matches the vecindad; pending members show a placeholder card
+  const members = [
+    {
+      name: "Sofía",
+      sign: "Escorpio",
+      blurb: [
+        "Intensa, estratégica y magnética.",
+        "Observa todo y actúa cuando le conviene.",
+        "Poder silencioso, cero superficial."
+      ]
+    },
+    {
+      name: "Paola",
+      sign: "Aries",
+      blurb: [
+        "Impulsiva, líder y sin filtro.",
+        "Acción antes que duda.",
+        "Energía que prende… o incendia."
+      ]
+    },
+    {
+      name: "Paulina",
+      sign: "Piscis",
+      blurb: [
+        "Emocional, empática y soñadora.",
+        "Siente profundo y se involucra mucho.",
+        "Corazón grande, pero vulnerable."
+      ]
+    },
+    {
+      name: "Lucía",
+      sign: "Capricornio",
+      blurb: [
+        "Fría, estructurada y ambiciosa.",
+        "Piensa a largo plazo y controla sus emociones.",
+        "La más aterrizada del grupo."
+      ]
+    },
+    {
+      name: "Jorge",
+      sign: "Piscis",
+      blurb: [
+        "Sensible, intenso pero confuso.",
+        "Mucho mundo interno, pocas respuestas claras.",
+        "Se deja llevar por lo que siente."
+      ]
+    },
+    {
+      name: "Adrián",
+      sign: "Leo",
+      blurb: [
+        "Carismático, divertido y protagonista.",
+        "Le gusta brillar y ser el centro.",
+        "Energía social alta."
+      ]
+    },
+    {
+      name: "Alfredo",
+      sign: "Sagitario",
+      blurb: [
+        "Relajado, libre y sin filtro.",
+        "Busca diversión y cero complicaciones.",
+        "El que dice lo que otros no."
+      ]
+    },
+    // Pending — fill these in when ready
+    { name: "Patrick",  pending: true },
+    { name: "Horacio",  pending: true },
+    { name: "Natalia",  pending: true },
+    { name: "Carro",    pending: true },
+    { name: "Santi",    pending: true },
+    { name: "Cons",     pending: true },
+    { name: "Kid",      pending: true },
+    { name: "Preci",    pending: true }
+  ];
+
+  // ===== RENDER =====
+  const grid = document.getElementById("cards-grid");
+
+  members.forEach((m, i) => {
+    const card = document.createElement("article");
+    const delay = `${0.1 + i * 0.05}s`;
+
+    if (m.pending) {
+      card.className = "card pending fade-up";
+      card.style.animationDelay = delay;
+      card.innerHTML = `
+        <div class="card-glyph">✧</div>
+        <div class="card-name">${m.name}</div>
+        <div class="card-divider"></div>
+        <div class="card-pending-text">Datos pendientes ✨</div>
+      `;
+    } else {
+      const signData = SIGNS[m.sign];
+      card.className = `card element-${signData.element} fade-up`;
+      card.style.animationDelay = delay;
+      card.innerHTML = `
+        <div class="card-glyph">${signData.glyph}</div>
+        <div class="card-name">${m.name}</div>
+        <div class="card-sign">${m.sign} · ${signData.date}</div>
+        <div class="card-divider"></div>
+        <div class="card-blurb">
+          ${m.blurb.map(line => `<p>${line}</p>`).join("")}
+        </div>
+      `;
+    }
+
+    grid.appendChild(card);
+  });
+
+  // ===== COMPATIBILITY DATA =====
+  // Only members with confirmed signs participate
+  const compatMembers = ["Sofía", "Paola", "Paulina", "Lucía", "Jorge", "Adrián", "Alfredo"];
+
+  // Vibes: fire, harmony, depth, tension, chaos, mirror
+  const VIBES = {
+    fire:    { label: "Fuego puro",      emoji: "🔥" },
+    harmony: { label: "Armonía",         emoji: "💫" },
+    depth:   { label: "Profundidad",     emoji: "🌊" },
+    tension: { label: "Tensión",         emoji: "⚡" },
+    chaos:   { label: "Caos hermoso",    emoji: "💥" },
+    mirror:  { label: "Espejo",          emoji: "🪞" }
+  };
+
+  // Pairs are stored as "Name1|Name2" with names alphabetical
+  const compatibility = {
+    "Adrián|Alfredo": {
+      vibe: "fire",
+      blurb: [
+        "Bromance escrito en las estrellas. Leo y Sagitario brillan a coro.",
+        "Risa contagiosa, ego compartido, anécdotas que nadie pidió.",
+        "Si entran a un lugar, todos voltean. Y ellos lo saben."
+      ]
+    },
+    "Adrián|Jorge": {
+      vibe: "tension",
+      blurb: [
+        "Leo necesita aplausos, Piscis necesita comprensión. No es match natural.",
+        "Adrián lo va a confundir; Jorge lo va a sentir todo en silencio.",
+        "Funciona si Leo aprende a escuchar — pero esa es otra historia."
+      ]
+    },
+    "Adrián|Lucía": {
+      vibe: "tension",
+      blurb: [
+        "Leo y Capricornio: dos jefes en el mismo cuarto. ¿Quién manda?",
+        "Él quiere brillar, ella quiere resultados. Egos chocan.",
+        "Pueden respetarse de lejos, pero juntos es campo de batalla."
+      ]
+    },
+    "Adrián|Paola": {
+      vibe: "fire",
+      blurb: [
+        "Leo + Aries = la pareja más Love Island del show.",
+        "Pasión, risa, pleitos públicos y reconciliaciones cinematográficas.",
+        "Match fuego o desastre fuego. No hay punto medio."
+      ]
+    },
+    "Adrián|Paulina": {
+      vibe: "tension",
+      blurb: [
+        "Leo brilla, Piscis adora — al principio. Después llega el malentendido.",
+        "Él no nota cuando ella se queda callada; ella lo carga todo dentro.",
+        "Bonito mientras dura, pero alguien va a quedar tocado."
+      ]
+    },
+    "Adrián|Sofía": {
+      vibe: "chaos",
+      blurb: [
+        "Leo y Escorpio: dos signos fijos que NO sueltan.",
+        "Atracción magnética, pleitos legendarios, ninguno cede primero.",
+        "El chisme de la vecindad por meses. Garantizado."
+      ]
+    },
+    "Alfredo|Jorge": {
+      vibe: "harmony",
+      blurb: [
+        "Sagitario y Piscis comparten a Júpiter — entendimiento sin esfuerzo.",
+        "Alfredo le da ligereza, Jorge le da profundidad.",
+        "Amistad real, sin agenda. De las que duran."
+      ]
+    },
+    "Alfredo|Lucía": {
+      vibe: "tension",
+      blurb: [
+        "Capricornio en el spreadsheet, Sagitario en el bar.",
+        "Ella ve sus excesos; él ve su control. Ninguno entiende al otro.",
+        "Toleran, no conectan. Cada quien en su esquina."
+      ]
+    },
+    "Alfredo|Paola": {
+      vibe: "fire",
+      blurb: [
+        "Doble fuego, doble velocidad. Plan a las 3am, ejecutado a las 4.",
+        "Aventura sin freno, cero drama emocional, mucha adrenalina.",
+        "Mejores cómplices del grupo. Posible match, posible caos."
+      ]
+    },
+    "Alfredo|Paulina": {
+      vibe: "tension",
+      blurb: [
+        "Sagitario sin filtro vs Piscis con todos los filtros.",
+        "Él dice algo casual, ella lo procesa por tres días.",
+        "Conectan en lo espiritual, chocan en lo cotidiano."
+      ]
+    },
+    "Alfredo|Sofía": {
+      vibe: "tension",
+      blurb: [
+        "Sagitario quiere libertad, Escorpio quiere control. Choque garantizado.",
+        "Él se aburre rápido; ella nunca olvida.",
+        "Atracción inicial fuerte, pero juntos es como aceite y agua."
+      ]
+    },
+    "Jorge|Lucía": {
+      vibe: "depth",
+      blurb: [
+        "Capricornio le da estructura a Piscis; Piscis le da emoción a Capricornio.",
+        "Combinación silenciosa pero sólida. Nadie lo nota hasta que ya pasó.",
+        "Match inesperado de la temporada."
+      ]
+    },
+    "Jorge|Paola": {
+      vibe: "tension",
+      blurb: [
+        "Aries impulsivo, Piscis sensible. Ella lo va a marear sin querer.",
+        "Él se pierde en sentimientos, ella ya pasó al siguiente plan.",
+        "No por mala vibra — solo van a velocidades diferentes."
+      ]
+    },
+    "Jorge|Paulina": {
+      vibe: "mirror",
+      blurb: [
+        "Doble Piscis: dos almas perdidas en el mismo mar.",
+        "Conexión intensa, conversaciones sin tiempo, llanto compartido.",
+        "Hermoso, pero alguien tiene que aterrizar — y no van a ser ellos."
+      ]
+    },
+    "Jorge|Sofía": {
+      vibe: "depth",
+      blurb: [
+        "Doble agua: emociones sin fondo, lealtad sin condiciones.",
+        "Sofía protege a Jorge, Jorge entiende a Sofía sin palabras.",
+        "Vínculo profundo. Romántico o no — los dos lo sienten."
+      ]
+    },
+    "Lucía|Paola": {
+      vibe: "tension",
+      blurb: [
+        "Dos signos cardinales = dos generales sin tropas que compartir.",
+        "Aries quiere ya, Capricornio quiere bien hecho. Cero punto medio.",
+        "Se respetan de lejos. De cerca: chispas, y no de las buenas."
+      ]
+    },
+    "Lucía|Paulina": {
+      vibe: "harmony",
+      blurb: [
+        "Opuestos complementarios. Capricornio aterriza, Piscis suaviza.",
+        "Lucía cuida a Paulina; Paulina derrite a Lucía.",
+        "Una de las amistades más sanas del grupo."
+      ]
+    },
+    "Lucía|Sofía": {
+      vibe: "depth",
+      blurb: [
+        "Capricornio + Escorpio = el power duo silencioso de la vecindad.",
+        "Ambas observan, calculan, no hablan de más. Pero saben todo.",
+        "Si se alían, controlan el grupo entero. Y nadie se da cuenta."
+      ]
+    },
+    "Paola|Paulina": {
+      vibe: "harmony",
+      blurb: [
+        "Aries protege a Piscis sin pedir permiso. Funciona raro pero funciona.",
+        "Paola pone los límites que Paulina no sabe poner.",
+        "Mejor amiga + escudo emocional. Combo poderoso."
+      ]
+    },
+    "Paola|Sofía": {
+      vibe: "chaos",
+      blurb: [
+        "Ambas regidas por Marte: guerra o lealtad eterna, no hay opción C.",
+        "Si están del mismo lado, nadie las toca. Si chocan, prendan velas.",
+        "El dúo más temido — y a veces el más unido — del grupo."
+      ]
+    },
+    "Paulina|Sofía": {
+      vibe: "depth",
+      blurb: [
+        "Doble agua: Sofía intensa, Paulina sensible. Conexión sin esfuerzo.",
+        "Sofía protege, Paulina abre el corazón. Nadie las separa.",
+        "Amistad que sobrevive todo. Hasta los peores capítulos."
+      ]
+    }
+  };
+
+  function pairKey(a, b) {
+    return [a, b].sort((x, y) => x.localeCompare(y, "es")).join("|");
+  }
+
+  function getCompat(a, b) {
+    return compatibility[pairKey(a, b)];
+  }
+
+  // ===== HIGHLIGHTS =====
+  const highlights = [
+    { label: "Match más fuerte",     pair: ["Adrián", "Paola"],   icon: "⭐" },
+    { label: "Caos asegurado",        pair: ["Adrián", "Sofía"],   icon: "💥" },
+    { label: "Sorpresa de la vecindad",  pair: ["Jorge", "Lucía"],    icon: "✨" },
+    { label: "Power duo",             pair: ["Lucía", "Sofía"],    icon: "👑" }
+  ];
+
+  const highlightsGrid = document.getElementById("highlights-grid");
+  highlights.forEach((h, i) => {
+    const c = getCompat(h.pair[0], h.pair[1]);
+    if (!c) return;
+    const vibeColors = {
+      fire: "#ff6b3d", harmony: "#68a85f", depth: "#9f7aea",
+      tension: "#c9302c", chaos: "#ff3d7f", mirror: "#4fd1c5"
+    };
+    const card = document.createElement("div");
+    card.className = "highlight-card fade-up";
+    card.style.animationDelay = `${0.1 + i * 0.08}s`;
+    card.style.setProperty("--vibe-color", vibeColors[c.vibe]);
+    card.innerHTML = `
+      <div class="highlight-emoji">${h.icon}</div>
+      <div class="highlight-label">${h.label}</div>
+      <div class="highlight-pair"><strong>${h.pair[0]}</strong> & <strong>${h.pair[1]}</strong></div>
+    `;
+    card.addEventListener("click", () => openCompatModal(h.pair[0], h.pair[1]));
+    highlightsGrid.appendChild(card);
+  });
+
+  // ===== MATRIX =====
+  const matrixTable = document.getElementById("matrix-table");
+
+  // Header row
+  let html = "<thead><tr><th class='corner'></th>";
+  compatMembers.forEach(name => {
+    html += `<th class="name-row">${name}</th>`;
+  });
+  html += "</tr></thead><tbody>";
+
+  // Body rows
+  compatMembers.forEach((rowName, rowIdx) => {
+    html += `<tr><th class="name-col">${rowName}</th>`;
+    compatMembers.forEach((colName, colIdx) => {
+      if (rowIdx === colIdx) {
+        html += `<td><div class="cell self">—</div></td>`;
+      } else if (rowIdx > colIdx) {
+        // Lower triangle empty so the matrix isn't redundant
+        html += `<td><div class="cell empty"></div></td>`;
+      } else {
+        const c = getCompat(rowName, colName);
+        if (c) {
+          html += `<td><div class="cell vibe-${c.vibe}" data-a="${rowName}" data-b="${colName}" title="${rowName} & ${colName}">${VIBES[c.vibe].emoji}</div></td>`;
+        } else {
+          html += `<td><div class="cell empty"></div></td>`;
+        }
+      }
+    });
+    html += "</tr>";
+  });
+  html += "</tbody>";
+  matrixTable.innerHTML = html;
+
+  // Click handlers for matrix cells
+  matrixTable.querySelectorAll(".cell[data-a]").forEach(cell => {
+    cell.addEventListener("click", () => {
+      openCompatModal(cell.dataset.a, cell.dataset.b);
+    });
+  });
+
+  // ===== MODAL =====
+  const SIGNS_LOOKUP = {
+    "Sofía": "Escorpio", "Paola": "Aries", "Paulina": "Piscis",
+    "Lucía": "Capricornio", "Jorge": "Piscis", "Adrián": "Leo",
+    "Alfredo": "Sagitario"
+  };
+
+  function openCompatModal(a, b) {
+    const c = getCompat(a, b);
+    if (!c) return;
+    const vibeData = VIBES[c.vibe];
+
+    document.getElementById("modal-emoji").textContent = vibeData.emoji;
+    document.getElementById("modal-vibe-tag").textContent = vibeData.label;
+    document.getElementById("modal-pair").innerHTML =
+      `<strong>${a}</strong><span class="amp">&</span><strong>${b}</strong>`;
+    document.getElementById("modal-signs").textContent =
+      `${SIGNS_LOOKUP[a]} · ${SIGNS_LOOKUP[b]}`;
+    document.getElementById("modal-blurb").innerHTML =
+      c.blurb.map(line => `<p>${line}</p>`).join("");
+
+    const modal = document.getElementById("compat-modal");
+    const box = document.getElementById("compat-modal-box");
+    const vibeColors = {
+      fire: "#ff6b3d", harmony: "#68a85f", depth: "#9f7aea",
+      tension: "#c9302c", chaos: "#ff3d7f", mirror: "#4fd1c5"
+    };
+    box.style.borderColor = vibeColors[c.vibe];
+
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeCompatModal() {
+    document.getElementById("compat-modal").classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  document.getElementById("compat-close").addEventListener("click", closeCompatModal);
+  document.getElementById("compat-modal").addEventListener("click", (e) => {
+    if (e.target.id === "compat-modal") closeCompatModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeCompatModal();
+  });
+</script>
+</body>
+</html>
